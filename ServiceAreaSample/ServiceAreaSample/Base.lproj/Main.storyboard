@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wZC-ui-GBW">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Eae-td-4po">
+            <objects>
+                <navigationController id="wZC-ui-GBW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QWv-cb-CNE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8zT-Ky-EsL" kind="relationship" relationship="rootViewController" id="9nb-Vd-LK1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vYc-yT-xkD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-514" y="393"/>
+        </scene>
+        <!--ServiceArea-->
+        <scene sceneID="5D0-cb-FZC">
+            <objects>
+                <viewController id="8zT-Ky-EsL" customClass="ServiceAreaViewController" customModule="ServiceAreaSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bfP-h0-iEr"/>
+                        <viewControllerLayoutGuide type="bottom" id="eoA-4a-7m1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ltt-cr-fzy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBY-g7-0A5" customClass="AGSMapView">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_watermark_onmap" translatesAutoresizingMaskIntoConstraints="NO" id="yt5-15-lVv"/>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="yt5-15-lVv" secondAttribute="bottom" constant="8" id="fgV-Yy-1t6"/>
+                                    <constraint firstAttribute="trailing" secondItem="yt5-15-lVv" secondAttribute="trailing" constant="8" id="oCI-jy-cYb"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZD-aZ-shv">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="NxU-Ad-MgZ"/>
+                                    <constraint firstAttribute="height" constant="50" id="dek-9O-LMe"/>
+                                </constraints>
+                                <state key="normal" image="btn_currentlocation_normal"/>
+                                <state key="selected" image="btn_currentlocation_pressed"/>
+                                <connections>
+                                    <action selector="btnCurrentLocation_Clicked:" destination="8zT-Ky-EsL" eventType="touchUpInside" id="Psn-vO-gxH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qBY-g7-0A5" secondAttribute="trailing" id="QiC-Eu-m5E"/>
+                            <constraint firstItem="eoA-4a-7m1" firstAttribute="top" secondItem="qBY-g7-0A5" secondAttribute="bottom" id="UcL-zS-uEF"/>
+                            <constraint firstItem="eoA-4a-7m1" firstAttribute="top" secondItem="8ZD-aZ-shv" secondAttribute="bottom" constant="10" id="ac1-fA-AxI"/>
+                            <constraint firstItem="8ZD-aZ-shv" firstAttribute="leading" secondItem="ltt-cr-fzy" secondAttribute="leading" constant="10" id="b2c-A1-NFg"/>
+                            <constraint firstItem="qBY-g7-0A5" firstAttribute="leading" secondItem="ltt-cr-fzy" secondAttribute="leading" id="efA-bc-7AR"/>
+                            <constraint firstItem="qBY-g7-0A5" firstAttribute="top" secondItem="ltt-cr-fzy" secondAttribute="top" id="jh1-Xx-iUv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="ServiceArea" id="c9b-ag-21l"/>
+                    <connections>
+                        <outlet property="mapView" destination="qBY-g7-0A5" id="kvK-c1-K5G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xlj-j4-89W" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="205" y="448"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_currentlocation_normal" width="40" height="40"/>
+        <image name="btn_currentlocation_pressed" width="40" height="40"/>
+        <image name="logo_watermark_onmap" width="80" height="12"/>
+    </resources>
+</document>

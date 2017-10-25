@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XnD-Ad-V5C">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail View Controller-->
+        <scene sceneID="qDD-hC-F57">
+            <objects>
+                <viewController id="eTR-mT-6vy" customClass="DetailViewController" customModule="ClosestFacilitySample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f3f-8o-CkE"/>
+                        <viewControllerLayoutGuide type="bottom" id="kxK-3L-7ma"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eRg-ga-91e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PJL-4q-Zty" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="403"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kdt-qi-PUW">
+            <objects>
+                <navigationController id="XnD-Ad-V5C" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CSB-6p-vJp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.2470588235" green="0.31764705879999999" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="APL-AN-kkL" kind="relationship" relationship="rootViewController" id="E59-CH-woS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OVq-0o-hdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-514" y="393"/>
+        </scene>
+        <!--Closest Facility-->
+        <scene sceneID="vUb-Eo-osV">
+            <objects>
+                <viewController id="APL-AN-kkL" customClass="FacilityViewController" customModule="ClosestFacilitySample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yeq-eQ-5GU"/>
+                        <viewControllerLayoutGuide type="bottom" id="5bH-0g-ORM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L0Q-Z6-62I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yg-b7-FTt">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8Yq-P6-SbM"/>
+                                    <constraint firstAttribute="width" constant="50" id="XOh-qT-vhl"/>
+                                </constraints>
+                                <state key="normal" image="btn_currentlocation_normal"/>
+                                <state key="selected" image="btn_currentlocation_pressed"/>
+                                <connections>
+                                    <action selector="btnCurrentLocation_Clicked:" destination="APL-AN-kkL" eventType="touchUpInside" id="dag-24-evh"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6XR-mp-xaR" customClass="AGSMapView">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_watermark_onmap" translatesAutoresizingMaskIntoConstraints="NO" id="DDz-37-oel"/>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0Yg-b7-FTt" firstAttribute="leading" secondItem="L0Q-Z6-62I" secondAttribute="leading" constant="10" id="8Dm-tk-LGT"/>
+                            <constraint firstItem="5bH-0g-ORM" firstAttribute="top" secondItem="6XR-mp-xaR" secondAttribute="bottom" id="JuW-Kk-vzQ"/>
+                            <constraint firstItem="6XR-mp-xaR" firstAttribute="top" secondItem="L0Q-Z6-62I" secondAttribute="top" id="MCl-nL-tzm"/>
+                            <constraint firstItem="6XR-mp-xaR" firstAttribute="leading" secondItem="L0Q-Z6-62I" secondAttribute="leading" id="V9v-5j-iOd"/>
+                            <constraint firstItem="5bH-0g-ORM" firstAttribute="top" secondItem="DDz-37-oel" secondAttribute="bottom" constant="8" id="dCt-C4-YEc"/>
+                            <constraint firstAttribute="trailing" secondItem="6XR-mp-xaR" secondAttribute="trailing" id="sIf-Qz-EdJ"/>
+                            <constraint firstItem="5bH-0g-ORM" firstAttribute="top" secondItem="0Yg-b7-FTt" secondAttribute="bottom" constant="10" id="sMx-vq-lTn"/>
+                            <constraint firstAttribute="trailing" secondItem="DDz-37-oel" secondAttribute="trailing" constant="8" id="xeh-gR-5Ta"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Closest Facility" id="1n7-ic-x2c"/>
+                    <connections>
+                        <outlet property="mapView" destination="6XR-mp-xaR" id="h0c-0l-nnG"/>
+                        <segue destination="eTR-mT-6vy" kind="show" identifier="detailSegue" id="hap-QO-L0y">
+                            <nil key="action"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aEu-Gh-N2s" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="413"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn_currentlocation_normal" width="80" height="12"/>
+        <image name="btn_currentlocation_pressed" width="40" height="40"/>
+        <image name="logo_watermark_onmap" width="80" height="12"/>
+    </resources>
+</document>

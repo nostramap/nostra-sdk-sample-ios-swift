@@ -1,0 +1,10 @@
+framework module NOSTRASDK {
+  umbrella header "NOSTRASDK.h"
+
+  export *
+  module * { export * }
+}
+
+module NOSTRASDK.Swift {
+    header "NOSTRASDK-Swift.h"
+}
