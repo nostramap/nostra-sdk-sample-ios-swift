@@ -9,8 +9,8 @@ This repository contains sample code of NOSTRA SDK for iOS. Each sample is an en
 
 
 ### For Swift :
-- XCode 9 (or higher)
-- iOS 8 SDK (or higher)
+- XCode 9.4.1 (or higher)
+- iOS 9 SDK (or higher)
 
 ### Instructions
 1. Get the code in this repository.
@@ -28,7 +28,7 @@ This repository contains sample code of NOSTRA SDK for iOS. Each sample is an en
 
 ### Licensing
 
-Copyright 2017 Globtech.
+Copyright 2018 Globtech.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 

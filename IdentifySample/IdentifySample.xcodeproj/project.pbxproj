@@ -188,7 +188,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ArcGIS.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -381,7 +381,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
-					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
+					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = IdentifySample/Info.plist;
@@ -409,7 +409,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
-					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
+					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = IdentifySample/Info.plist;
