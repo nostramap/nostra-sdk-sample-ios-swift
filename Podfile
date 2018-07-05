@@ -1,5 +1,7 @@
 workspace 'Swift'
 
+platform :ios, '9.0'
+
 target 'AddressSearchSample' do
     use_frameworks!
     pod 'NOSTRASDK', '3.0.4'

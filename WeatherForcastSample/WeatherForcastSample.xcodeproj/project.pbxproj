@@ -137,7 +137,6 @@
 				TargetAttributes = {
 					AFC2A80E1CC378A500FC6AFA = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = JV39BS58TD;
 						LastSwiftMigration = 0900;
 					};
 				};
@@ -369,7 +368,7 @@
 			baseConfigurationReference = D39F2DF53600DC4C5D4AFD33 /* Pods-WeatherForcastSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JV39BS58TD;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,13 +377,7 @@
 				);
 				INFOPLIST_FILE = WeatherForcastSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-					"-l",
-					"c++",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = nostrasdk.WeatherForcastSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -397,7 +390,7 @@
 			baseConfigurationReference = F1C805B6F44E6944E5F53772 /* Pods-WeatherForcastSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JV39BS58TD;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -406,13 +399,7 @@
 				);
 				INFOPLIST_FILE = WeatherForcastSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-					"-l",
-					"c++",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = nostrasdk.WeatherForcastSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

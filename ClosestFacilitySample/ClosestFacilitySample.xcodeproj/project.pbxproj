@@ -137,7 +137,6 @@
 				TargetAttributes = {
 					AF65F8281CE8A28300C2E35B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = JV39BS58TD;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -369,7 +368,7 @@
 			baseConfigurationReference = 637284A4FB736DAC9245DC7A /* Pods-ClosestFacilitySample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JV39BS58TD;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
@@ -377,13 +376,7 @@
 				);
 				INFOPLIST_FILE = ClosestFacilitySample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-					"-l",
-					"c++",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = nostrasdk.ClosestFacilitySample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -395,7 +388,7 @@
 			baseConfigurationReference = B93B787FF8D997FA7E2537F2 /* Pods-ClosestFacilitySample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JV39BS58TD;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
@@ -403,13 +396,7 @@
 				);
 				INFOPLIST_FILE = ClosestFacilitySample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-					"-l",
-					"c++",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = nostrasdk.ClosestFacilitySample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
