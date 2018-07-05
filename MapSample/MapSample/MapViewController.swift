@@ -245,8 +245,9 @@ class MapViewController: UIViewController, AGSMapViewLayerDelegate, AGSLayerDele
                     layer.isVisible = visible;
                 }
                 
+                let dependMap : [Int] = mapPermission.dependMap
                 // Manamge depend map visible
-                if let dependMap = mapPermission.dependMap, dependMap.count > 0 {
+                if  (dependMap.count > 0) {
                     for mapId in dependMap {
                         self.visibleLayer(visible, serviceId: mapId);
                     }
