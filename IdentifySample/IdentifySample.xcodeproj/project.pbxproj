@@ -378,10 +378,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = IdentifySample/Info.plist;
@@ -406,10 +406,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = IdentifySample/Info.plist;
