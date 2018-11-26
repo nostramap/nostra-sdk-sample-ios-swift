@@ -4,13 +4,13 @@ This repository contains sample code of NOSTRA SDK for iOS. Each sample is an en
 
 ### Requirements
 
-- NOSTRA SDK > [Get SDK](https://developer.nostramap.com)
+- NOSTRA SDK > [Get SDK](https://developer.nostramap.com/developer/V3/ios.html#/home)
 - ArcGIS Runtime SDK for iOS
 
 
 ### For Swift :
-- XCode 9.4.1 (or higher)
-- iOS 9 SDK (or higher)
+- XCode 10 (or higher)
+- iOS 10 SDK (or higher)
 
 ### Instructions
 1. Get the code in this repository.
