@@ -188,7 +188,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-RouteSample/Pods-RouteSample-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RouteSample/Pods-RouteSample-resources.sh",
 				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -197,7 +197,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RouteSample/Pods-RouteSample-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteSample/Pods-RouteSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BA72838DF88E33666F9611CC /* [CP] Check Pods Manifest.lock */ = {
@@ -224,7 +224,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-RouteSample/Pods-RouteSample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RouteSample/Pods-RouteSample-frameworks.sh",
 				"${PODS_ROOT}/NOSTRASDK/NOSTRASDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -233,7 +233,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RouteSample/Pods-RouteSample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteSample/Pods-RouteSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -384,7 +384,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
+					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = RouteSample/Info.plist;
@@ -406,7 +406,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
+					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = RouteSample/Info.plist;
