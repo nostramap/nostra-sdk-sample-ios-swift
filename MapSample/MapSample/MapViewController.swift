@@ -32,7 +32,7 @@ class MapViewController: UIViewController, AGSMapViewLayerDelegate, AGSLayerDele
         mapView.layerDelegate = self;
         
         do {
-            NTSDKEnvironment.setAPIKey(""); // Set your API key
+
             mapResultSet = try NTMapPermissionService.execute()
             
             if let results = mapResultSet?.results, results.count > 0{

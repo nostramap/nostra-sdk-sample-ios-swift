@@ -43,7 +43,7 @@ class DMCDetailViewController: UIViewController {
         
         do {
             if let result = self.result, let point = result.point {
-                let location = NTLocation(name: result.localName, latitude: point.latitude, longitude: point.longitude);
+                let location = NTLocation(name: result.localName, latitude: point.latitude!, longitude: point.longitude!);
                 let param = NTShortLinkParameter(location: location);
                 let shareResult = try NTShortLinkService.execute(param);
                 

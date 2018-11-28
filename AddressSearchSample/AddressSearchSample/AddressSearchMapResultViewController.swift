@@ -39,7 +39,7 @@ class AddressSearchMapResultViewController: UIViewController, AGSLayerDelegate, 
     //MARK: layer delegate
     func layerDidLoad(_ layer: AGSLayer!) {
         if let result = self.result, let point = result.locationPoint {
-            let point = AGSPoint(x: point.longitude, y: point.latitude, spatialReference: AGSSpatialReference.wgs84());
+            let point = AGSPoint(x: point.longitude!, y: point.latitude!, spatialReference: AGSSpatialReference.wgs84());
             let mappoint = AGSPoint(fromDegreesDecimalMinutesString: point?.decimalDegreesString(withNumDigits: 7),
                                     with: AGSSpatialReference.webMercator());
             

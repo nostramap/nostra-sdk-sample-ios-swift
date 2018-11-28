@@ -32,7 +32,7 @@ class DMCMapViewController: UIViewController, AGSLayerDelegate, AGSCalloutDelega
     //MARK: layer delegate
     func layerDidLoad(_ layer: AGSLayer!) {
         if let result = self.result, let point = result.point {
-            let point = AGSPoint(x: point.x, y: point.y, spatialReference: AGSSpatialReference.wgs84())
+            let point = AGSPoint(x: point.x!, y: point.y!, spatialReference: AGSSpatialReference.wgs84())
             
             guard let decString = point?.decimalDegreesString(withNumDigits: 7) else {
                 return

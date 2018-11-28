@@ -47,8 +47,8 @@ class MapResultViewController: UIViewController, AGSLayerDelegate, AGSCalloutDel
     //MARK: layer delegate
     func layerDidLoad(_ layer: AGSLayer!) {
         if let result = self.result, let locPoint = result.locationPoint {
-            let point = AGSPoint(x: locPoint.longitude,
-                                 y: locPoint.latitude,
+            let point = AGSPoint(x: locPoint.longitude!,
+                                 y: locPoint.latitude!,
                                  spatialReference: AGSSpatialReference.wgs84())
             if let decString = point?.decimalDegreesString(withNumDigits: 7) {
                 let mappoint = AGSPoint(fromDegreesDecimalMinutesString: decString,

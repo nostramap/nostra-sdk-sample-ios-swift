@@ -125,7 +125,7 @@ class FacilityViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapV
         compSymbol.addSymbols([circleSymbol, textSymbol])
         
         if let point = facility1.point, let symbol = compSymbol.copy() as? AGSSymbol {
-            let facilityPoint1 = AGSPoint(x: point.longitude, y: point.latitude,
+            let facilityPoint1 = AGSPoint(x: point.longitude!, y: point.latitude!,
                                           spatialReference: AGSSpatialReference.wgs84())
             if let decString = facilityPoint1?.decimalDegreesString(withNumDigits: 7) {
                 let mappoint = AGSPoint(fromDecimalDegreesString: decString,
@@ -140,7 +140,7 @@ class FacilityViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapV
             
         }
         if let point = facility2.point, let symbol = compSymbol.copy() as? AGSSymbol {
-            let facilityPoint2 = AGSPoint(x: point.longitude, y: point.latitude,
+            let facilityPoint2 = AGSPoint(x: point.longitude!, y: point.latitude!,
                                           spatialReference: AGSSpatialReference.wgs84())
             if let decString = facilityPoint2?.decimalDegreesString(withNumDigits: 7) {
                 textSymbol.text = "2";
@@ -153,7 +153,7 @@ class FacilityViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapV
             }
         }
         if let point = facility3.point, let symbol = compSymbol.copy() as? AGSSymbol {
-            let facilityPoint3 = AGSPoint(x: point.longitude, y: point.latitude,
+            let facilityPoint3 = AGSPoint(x: point.longitude!, y: point.latitude!,
                                           spatialReference: AGSSpatialReference.wgs84())
             if let decString = facilityPoint3?.decimalDegreesString(withNumDigits: 7) {
                 textSymbol.text = "3"
@@ -166,7 +166,7 @@ class FacilityViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapV
             }
         }
         if let point = facility4.point, let symbol = compSymbol.copy() as? AGSSymbol {
-            let facilityPoint4 = AGSPoint(x: point.longitude, y: point.latitude,
+            let facilityPoint4 = AGSPoint(x: point.longitude!, y: point.latitude!,
                                           spatialReference: AGSSpatialReference.wgs84())
             if let decString = facilityPoint4?.decimalDegreesString(withNumDigits: 7) {
                 textSymbol.text = "4";
