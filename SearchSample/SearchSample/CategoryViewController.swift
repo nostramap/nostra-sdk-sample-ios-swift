@@ -8,7 +8,7 @@
 import UIKit
 import NOSTRASDK
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController ,UITableViewDataSource , UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -43,14 +43,14 @@ class CategoryViewController: UIViewController {
         }
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let category = categories?[indexPath.row] {
             self.performSegue(withIdentifier: "categorytoResultSegue", sender: category.code)
         }
     }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell"), let category = categories?[indexPath.row] else {
             return UITableViewCell()
@@ -66,7 +66,7 @@ class CategoryViewController: UIViewController {
         return categories != nil ? categories!.count : 0;
     }
     
-    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 

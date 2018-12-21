@@ -11,7 +11,7 @@ import NOSTRASDK
 
 class RouteViewController: UIViewController, AGSMapViewLayerDelegate, AGSLayerDelegate, MarkOnMapDelegate {
 
-    let referrer = "geotalent_dmd.nostramap.com"
+    let referrer = ""
     
     @IBOutlet weak var mapView: AGSMapView!
     @IBOutlet weak var resultView: UIView!

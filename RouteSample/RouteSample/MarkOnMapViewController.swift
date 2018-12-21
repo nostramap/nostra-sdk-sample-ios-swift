@@ -16,7 +16,7 @@ protocol MarkOnMapDelegate {
 
 class MarkOnMapViewController: UIViewController, AGSMapViewLayerDelegate, AGSLayerDelegate {
 
-    let referrer = "geotalent_dmd.nostramap.com"
+    let referrer = ""
     
     var delegate:MarkOnMapDelegate?;
     

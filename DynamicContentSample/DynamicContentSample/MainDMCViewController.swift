@@ -21,7 +21,7 @@ class MainDMCViewController: UIViewController, AGSMapViewLayerDelegate, AGSLayer
     var results: [NTDynamicContentListResult]?
     
     
-    let referrer = "geotalent_dmd.nostramap.com"
+    let referrer = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +74,7 @@ class MainDMCViewController: UIViewController, AGSMapViewLayerDelegate, AGSLayer
         tableLeading.constant = -180;
         UIView.commitAnimations();
         
+        btnHideMenu.isHidden = true
 
     }
     

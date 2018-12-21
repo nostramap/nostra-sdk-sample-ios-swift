@@ -146,7 +146,6 @@
 				TargetAttributes = {
 					AFC2A7F01CC3787200FC6AFA = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = JV39BS58TD;
 						LastSwiftMigration = 0900;
 					};
 				};
@@ -189,7 +188,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AddressSearchSample/Pods-AddressSearchSample-frameworks.sh",
+				"${SRCROOT}/../Pods/Target Support Files/Pods-AddressSearchSample/Pods-AddressSearchSample-frameworks.sh",
 				"${PODS_ROOT}/NOSTRASDK/NOSTRASDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -198,7 +197,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AddressSearchSample/Pods-AddressSearchSample-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AddressSearchSample/Pods-AddressSearchSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		41036FC1FDDAAD43E98AF5A7 /* [CP] Check Pods Manifest.lock */ = {
@@ -225,7 +224,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AddressSearchSample/Pods-AddressSearchSample-resources.sh",
+				"${SRCROOT}/../Pods/Target Support Files/Pods-AddressSearchSample/Pods-AddressSearchSample-resources.sh",
 				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -234,7 +233,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AddressSearchSample/Pods-AddressSearchSample-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-AddressSearchSample/Pods-AddressSearchSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -386,11 +385,11 @@
 			baseConfigurationReference = 822CE3C593942325ED520A96 /* Pods-AddressSearchSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JV39BS58TD;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = AddressSearchSample/Info.plist;
@@ -409,11 +408,11 @@
 			baseConfigurationReference = 6E1A9E7CF3AB8380476B74B0 /* Pods-AddressSearchSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JV39BS58TD;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = AddressSearchSample/Info.plist;

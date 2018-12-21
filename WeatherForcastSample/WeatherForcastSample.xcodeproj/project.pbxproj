@@ -179,7 +179,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WeatherForcastSample/Pods-WeatherForcastSample-frameworks.sh",
+				"${SRCROOT}/../Pods/Target Support Files/Pods-WeatherForcastSample/Pods-WeatherForcastSample-frameworks.sh",
 				"${PODS_ROOT}/NOSTRASDK/NOSTRASDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -188,7 +188,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeatherForcastSample/Pods-WeatherForcastSample-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WeatherForcastSample/Pods-WeatherForcastSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AA513ECA492F2F386DB793ED /* [CP] Check Pods Manifest.lock */ = {
@@ -215,7 +215,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WeatherForcastSample/Pods-WeatherForcastSample-resources.sh",
+				"${SRCROOT}/../Pods/Target Support Files/Pods-WeatherForcastSample/Pods-WeatherForcastSample-resources.sh",
 				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -224,7 +224,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WeatherForcastSample/Pods-WeatherForcastSample-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WeatherForcastSample/Pods-WeatherForcastSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -372,7 +372,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = WeatherForcastSample/Info.plist;
@@ -394,7 +394,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = WeatherForcastSample/Info.plist;

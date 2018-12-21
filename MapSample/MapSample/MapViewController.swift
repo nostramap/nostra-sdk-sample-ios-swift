@@ -312,7 +312,11 @@ class MapViewController: UIViewController, AGSMapViewLayerDelegate, AGSLayerDele
         self.hideMenu();
         
     }
+    
     @IBAction func btnLocLocation_Clicked(_ sender: AnyObject) {
+        let btn = sender as! UIButton
+        btn.isSelected = !btn.isSelected;
+        mapView.locationDisplay.autoPanMode = btn.isSelected ? .default : .off;
         
     }
     

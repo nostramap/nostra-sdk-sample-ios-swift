@@ -197,7 +197,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ClosestFacilitySample/Pods-ClosestFacilitySample-resources.sh",
+				"${SRCROOT}/../Pods/Target Support Files/Pods-ClosestFacilitySample/Pods-ClosestFacilitySample-resources.sh",
 				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -206,7 +206,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClosestFacilitySample/Pods-ClosestFacilitySample-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ClosestFacilitySample/Pods-ClosestFacilitySample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B9B9F8802455ED3E45C0E919 /* [CP] Embed Pods Frameworks */ = {
@@ -215,7 +215,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ClosestFacilitySample/Pods-ClosestFacilitySample-frameworks.sh",
+				"${SRCROOT}/../Pods/Target Support Files/Pods-ClosestFacilitySample/Pods-ClosestFacilitySample-frameworks.sh",
 				"${PODS_ROOT}/NOSTRASDK/NOSTRASDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -224,7 +224,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClosestFacilitySample/Pods-ClosestFacilitySample-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ClosestFacilitySample/Pods-ClosestFacilitySample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -372,7 +372,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = ClosestFacilitySample/Info.plist;
@@ -393,7 +393,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = ClosestFacilitySample/Info.plist;

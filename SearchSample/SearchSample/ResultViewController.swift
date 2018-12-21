@@ -9,7 +9,7 @@ import UIKit
 import NOSTRASDK
 import CoreLocation
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController , UITableViewDataSource , UITableViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -87,13 +87,13 @@ class ResultViewController: UIViewController {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let result = results![indexPath.row];
         self.performSegue(withIdentifier: "mapResultSegue", sender: result);
     }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell"), let result = results?[indexPath.row] else {
             return UITableViewCell()
@@ -114,7 +114,7 @@ class ResultViewController: UIViewController {
         return results != nil ? (results?.count)! : 0;
     }
     
-    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     

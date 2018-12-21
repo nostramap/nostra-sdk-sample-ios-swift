@@ -48,7 +48,7 @@ class LocalCategoryViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let category = localCateogries?[indexPath.row] {
-            self.performSegue(withIdentifier: "localCategorytoResultSegue", sender: category.categoryCode)
+            self.performSegue(withIdentifier: "localCategorytoResultSegue", sender: category.localCategoryCode)
         }
         
     }

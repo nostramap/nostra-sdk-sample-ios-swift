@@ -43,30 +43,29 @@ class WeatherViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapVi
 
     //MARK: Touch Delegate
     func mapView(_ mapView: AGSMapView!, didTapAndHoldAt screen: CGPoint, mapPoint mappoint: AGSPoint!, features: [AnyHashable: Any]!) {
-        
-        
+
+
         if graphicLayer.graphicsCount > 0 {
             graphicLayer.removeAllGraphics();
         }
-        
+
         let symbol = AGSPictureMarkerSymbol(imageNamed: "pin_map");
-        
+
         let graphic = AGSGraphic(geometry: mappoint, symbol: symbol, attributes: nil);
-        
+
         graphicLayer.addGraphic(graphic);
-        
-        
+
+
         mapView.callout.show(at: mappoint, for: graphic, layer: graphicLayer, animated: true);
     }
     
     //MARK: Callout delegate
-    func callout(_ callout: AGSCallout!, willShowFor feature: AGSFeature!, layer: AGSLayer!, mapPoint: AGSPoint!) -> Bool {
-        
+    func callout(_ callout: AGSCallout!, willShowFor feature: AGSFeature!, layer: (AGSLayer & AGSHitTestable)!, mapPoint: AGSPoint!) -> Bool {
         do {
             let point = AGSPoint(fromDecimalDegreesString: mapPoint.decimalDegreesString(withNumDigits: 7),
                                  with: AGSSpatialReference.wgs84());
             
-
+            
             let param = NTWeatherParameter(latitude: point!.y, longitude: point!.x, frequency: .daily);
             
             weatherResult = try NTWeatherService.execute(param);
@@ -78,7 +77,7 @@ class WeatherViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapVi
                 if let url = weather.iconUrl, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                     callout.image = image
                     callout.isAccessoryButtonHidden = true
-        
+                    
                     imageView.image = image
                 }
                 

@@ -74,6 +74,7 @@ class FacilityViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapV
             let param = NTClosestFacilityParameter(facilities: facilities, incident: incident)
 
             do {
+                param.cutOff = 60
                 let result = try NTClosestFacilityService.execute(param)
                 
                 let lineSymbol = AGSSimpleLineSymbol(color: UIColor.lightGray,width: 4);
@@ -114,6 +115,7 @@ class FacilityViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapV
         mapView.addMapLayer(graphicLayer);
         
         var graphics = [AGSGraphic]()
+        var geometries = [AGSGeometry]()
         
         let compSymbol = AGSCompositeSymbol()
         let textSymbol  = AGSTextSymbol(text: "1", color: UIColor.black)!
@@ -133,6 +135,7 @@ class FacilityViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapV
                 
                 if let graphic = AGSGraphic(geometry: mappoint, symbol: symbol, attributes: nil) {
                     graphics.append(graphic)
+                    geometries.append(mappoint!)
                 }
                 
             }
@@ -149,6 +152,7 @@ class FacilityViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapV
                 
                 if let graphic = AGSGraphic(geometry: mappoint, symbol: symbol, attributes: nil) {
                     graphics.append(graphic)
+                    geometries.append(mappoint!)
                 }
             }
         }
@@ -162,6 +166,7 @@ class FacilityViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapV
                 
                 if let graphic = AGSGraphic(geometry: mappoint, symbol: symbol, attributes: nil) {
                     graphics.append(graphic)
+                    geometries.append(mappoint!)
                 }
             }
         }
@@ -175,13 +180,14 @@ class FacilityViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapV
                 
                 if let graphic = AGSGraphic(geometry: mappoint, symbol: symbol, attributes: nil) {
                     graphics.append(graphic)
+                    geometries.append(mappoint!)
                 }
             }
         }
         graphicLayer.addGraphics(graphics);
         
         //find envelope
-        let envGeo = AGSGeometryEngine.default().unionGeometries(graphics);
+        let envGeo = AGSGeometryEngine.default().unionGeometries(geometries);
         mapView.zoom(to: envGeo, withPadding: 100, animated: true);
         
     }

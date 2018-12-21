@@ -1,0 +1,20 @@
+PODS:
+  - ArcGIS-Runtime-SDK-iOS (10.2.5)
+  - NOSTRASDK (3.0.5)
+
+DEPENDENCIES:
+  - ArcGIS-Runtime-SDK-iOS (= 10.2.5)
+  - NOSTRASDK (= 3.0.5)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ArcGIS-Runtime-SDK-iOS
+    - NOSTRASDK
+
+SPEC CHECKSUMS:
+  ArcGIS-Runtime-SDK-iOS: 0d62980b8ed60c1ee8ca292c1c644e74e0e922aa
+  NOSTRASDK: c2dc56f52b1982ddf2b3a61af8c916d83d1406f6
+
+PODFILE CHECKSUM: 53397da45e6bd90cac07b8a75ea461271e557e1c
+
+COCOAPODS: 1.5.3
