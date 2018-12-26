@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1FC6E121A92B7020F119AD1F /* Pods_RouteSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0BA6981A7AA2C28C2EC787 /* Pods_RouteSample.framework */; };
+		47EEF50A9B4C833609A7322B /* Pods_SearchAlongTheRouteSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F08D48BAF2B0EE52E68301 /* Pods_SearchAlongTheRouteSample.framework */; };
 		5E70AB0D1F8F407D00CC346E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E70AB0C1F8F407D00CC346E /* SearchViewController.swift */; };
 		AF725C551CE878E100A040AA /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF725C541CE878E100A040AA /* RouteDetailViewController.swift */; };
 		AFC2A7D71CC3786400FC6AFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC2A7D61CC3786400FC6AFA /* AppDelegate.swift */; };
@@ -36,8 +37,11 @@
 		555161552C78A7D8D08D86D5 /* Pods-RouteSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteSample.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RouteSample/Pods-RouteSample.debug.xcconfig"; sourceTree = "<group>"; };
 		5E70AB0C1F8F407D00CC346E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		671D50B78EBD43646B6270C1 /* Pods-RouteSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteSample.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RouteSample/Pods-RouteSample.release.xcconfig"; sourceTree = "<group>"; };
+		776CC1AF4F6DFE0524472A20 /* Pods-SearchAlongTheRouteSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchAlongTheRouteSample.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SearchAlongTheRouteSample/Pods-SearchAlongTheRouteSample.debug.xcconfig"; sourceTree = "<group>"; };
+		81C1B4441B37BF08B6F82B74 /* Pods-SearchAlongTheRouteSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchAlongTheRouteSample.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SearchAlongTheRouteSample/Pods-SearchAlongTheRouteSample.release.xcconfig"; sourceTree = "<group>"; };
+		A2F08D48BAF2B0EE52E68301 /* Pods_SearchAlongTheRouteSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchAlongTheRouteSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF725C541CE878E100A040AA /* RouteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
-		AFC2A7D31CC3786400FC6AFA /* RouteSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFC2A7D31CC3786400FC6AFA /* SearchAlongTheRouteSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchAlongTheRouteSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC2A7D61CC3786400FC6AFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFC2A7D81CC3786400FC6AFA /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		AFC2A7DB1CC3786400FC6AFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FC6E121A92B7020F119AD1F /* Pods_RouteSample.framework in Frameworks */,
+				47EEF50A9B4C833609A7322B /* Pods_SearchAlongTheRouteSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +67,7 @@
 		AFC2A7CA1CC3786400FC6AFA = {
 			isa = PBXGroup;
 			children = (
-				AFC2A7D51CC3786400FC6AFA /* RouteSample */,
+				AFC2A7D51CC3786400FC6AFA /* SearchAlongTheRouteSample */,
 				AFC2A7D41CC3786400FC6AFA /* Products */,
 				F09FD151ABF54E773EA10F52 /* Pods */,
 				D0CABFF89955C86FF35D463B /* Frameworks */,
@@ -72,12 +77,12 @@
 		AFC2A7D41CC3786400FC6AFA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AFC2A7D31CC3786400FC6AFA /* RouteSample.app */,
+				AFC2A7D31CC3786400FC6AFA /* SearchAlongTheRouteSample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AFC2A7D51CC3786400FC6AFA /* RouteSample */ = {
+		AFC2A7D51CC3786400FC6AFA /* SearchAlongTheRouteSample */ = {
 			isa = PBXGroup;
 			children = (
 				AFC2A7D61CC3786400FC6AFA /* AppDelegate.swift */,
@@ -90,13 +95,14 @@
 				AFC2A7DF1CC3786400FC6AFA /* LaunchScreen.storyboard */,
 				AFC2A7E21CC3786400FC6AFA /* Info.plist */,
 			);
-			path = RouteSample;
+			path = SearchAlongTheRouteSample;
 			sourceTree = "<group>";
 		};
 		D0CABFF89955C86FF35D463B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1E0BA6981A7AA2C28C2EC787 /* Pods_RouteSample.framework */,
+				A2F08D48BAF2B0EE52E68301 /* Pods_SearchAlongTheRouteSample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -106,6 +112,8 @@
 			children = (
 				555161552C78A7D8D08D86D5 /* Pods-RouteSample.debug.xcconfig */,
 				671D50B78EBD43646B6270C1 /* Pods-RouteSample.release.xcconfig */,
+				776CC1AF4F6DFE0524472A20 /* Pods-SearchAlongTheRouteSample.debug.xcconfig */,
+				81C1B4441B37BF08B6F82B74 /* Pods-SearchAlongTheRouteSample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -113,9 +121,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AFC2A7D21CC3786400FC6AFA /* RouteSample */ = {
+		AFC2A7D21CC3786400FC6AFA /* SearchAlongTheRouteSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AFC2A7E51CC3786400FC6AFA /* Build configuration list for PBXNativeTarget "RouteSample" */;
+			buildConfigurationList = AFC2A7E51CC3786400FC6AFA /* Build configuration list for PBXNativeTarget "SearchAlongTheRouteSample" */;
 			buildPhases = (
 				BA72838DF88E33666F9611CC /* [CP] Check Pods Manifest.lock */,
 				AFC2A7CF1CC3786400FC6AFA /* Sources */,
@@ -129,9 +137,9 @@
 			);
 			dependencies = (
 			);
-			name = RouteSample;
+			name = SearchAlongTheRouteSample;
 			productName = RouteSample;
-			productReference = AFC2A7D31CC3786400FC6AFA /* RouteSample.app */;
+			productReference = AFC2A7D31CC3786400FC6AFA /* SearchAlongTheRouteSample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -150,7 +158,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AFC2A7CE1CC3786400FC6AFA /* Build configuration list for PBXProject "RouteSample" */;
+			buildConfigurationList = AFC2A7CE1CC3786400FC6AFA /* Build configuration list for PBXProject "SearchAlongTheRouteSample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -163,7 +171,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AFC2A7D21CC3786400FC6AFA /* RouteSample */,
+				AFC2A7D21CC3786400FC6AFA /* SearchAlongTheRouteSample */,
 			);
 		};
 /* End PBXProject section */
@@ -188,7 +196,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RouteSample/Pods-RouteSample-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SearchAlongTheRouteSample/Pods-SearchAlongTheRouteSample-resources.sh",
 				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -197,7 +205,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteSample/Pods-RouteSample-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SearchAlongTheRouteSample/Pods-SearchAlongTheRouteSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BA72838DF88E33666F9611CC /* [CP] Check Pods Manifest.lock */ = {
@@ -211,7 +219,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RouteSample-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SearchAlongTheRouteSample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -224,7 +232,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RouteSample/Pods-RouteSample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SearchAlongTheRouteSample/Pods-SearchAlongTheRouteSample-frameworks.sh",
 				"${PODS_ROOT}/NOSTRASDK/NOSTRASDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -233,7 +241,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteSample/Pods-RouteSample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SearchAlongTheRouteSample/Pods-SearchAlongTheRouteSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -377,20 +385,20 @@
 		};
 		AFC2A7E61CC3786400FC6AFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 555161552C78A7D8D08D86D5 /* Pods-RouteSample.debug.xcconfig */;
+			baseConfigurationReference = 776CC1AF4F6DFE0524472A20 /* Pods-SearchAlongTheRouteSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
+					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
-				INFOPLIST_FILE = RouteSample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SearchAlongTheRouteSample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = nostrasdk.RouteSample;
+				PRODUCT_BUNDLE_IDENTIFIER = nostrasdk.SearchAlongTheRouteSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -399,20 +407,20 @@
 		};
 		AFC2A7E71CC3786400FC6AFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 671D50B78EBD43646B6270C1 /* Pods-RouteSample.release.xcconfig */;
+			baseConfigurationReference = 81C1B4441B37BF08B6F82B74 /* Pods-SearchAlongTheRouteSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
+					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
-				INFOPLIST_FILE = RouteSample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SearchAlongTheRouteSample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = nostrasdk.RouteSample;
+				PRODUCT_BUNDLE_IDENTIFIER = nostrasdk.SearchAlongTheRouteSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -422,7 +430,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AFC2A7CE1CC3786400FC6AFA /* Build configuration list for PBXProject "RouteSample" */ = {
+		AFC2A7CE1CC3786400FC6AFA /* Build configuration list for PBXProject "SearchAlongTheRouteSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AFC2A7E31CC3786400FC6AFA /* Debug */,
@@ -431,7 +439,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFC2A7E51CC3786400FC6AFA /* Build configuration list for PBXNativeTarget "RouteSample" */ = {
+		AFC2A7E51CC3786400FC6AFA /* Build configuration list for PBXNativeTarget "SearchAlongTheRouteSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AFC2A7E61CC3786400FC6AFA /* Debug */,

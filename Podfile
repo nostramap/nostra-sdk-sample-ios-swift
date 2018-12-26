@@ -58,6 +58,13 @@ target 'RouteSample' do
     project 'RouteSample/RouteSample.xcodeproj'
 end
 
+target 'SearchAlongTheRouteSample' do
+    use_frameworks!
+    pod 'NOSTRASDK', '3.0.5'
+    pod 'ArcGIS-Runtime-SDK-iOS', '10.2.5'
+    project 'SearchAlongTheRouteSample/SearchAlongTheRouteSample.xcodeproj'
+end
+
 target 'SearchSample' do
     use_frameworks!
     pod 'NOSTRASDK', '3.0.5'
