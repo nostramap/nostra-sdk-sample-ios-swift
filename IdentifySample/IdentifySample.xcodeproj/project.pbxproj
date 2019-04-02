@@ -150,6 +150,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -381,7 +382,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = IdentifySample/Info.plist;
@@ -392,7 +393,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -409,7 +410,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = IdentifySample/Info.plist;
@@ -419,7 +420,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

@@ -28,7 +28,7 @@ This repository contains sample code of NOSTRA SDK for iOS. Each sample is an en
 
 ### Licensing
 
-Copyright 2018 Globtech.
+Copyright 2019 Globtech.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 

@@ -146,6 +146,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -372,7 +373,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = ServiceAreaSample/Info.plist;
@@ -381,7 +382,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nostrasdk.ServiceAreaSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -394,7 +395,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
+					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = ServiceAreaSample/Info.plist;
@@ -403,7 +404,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nostrasdk.ServiceAreaSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
