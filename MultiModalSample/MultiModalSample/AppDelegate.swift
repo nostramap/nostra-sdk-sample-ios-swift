@@ -13,13 +13,13 @@ import ArcGIS
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let apiKey = "";
+    let apiKey = ""
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         do {
             NTSDKEnvironment.setAPIKey(apiKey);
-            try AGSRuntimeEnvironment.setClientID("A0V6LPS6BbsLOcnc");
+            try AGSArcGISRuntimeEnvironment.setLicenseKey("A0V6LPS6BbsLOcnc")
         }
         catch let error {
             print("arcgis runtime error: \(error)");

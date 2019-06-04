@@ -21,20 +21,20 @@ class AddressSearchAttributesViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "resultSegue" {
-            let resultViewController = segue.destination as? AddressSearchResultViewController;
+            let resultViewController = segue.destination as? AddressSearchResultViewController
             
             let param = NTAddressSearchParameter()
             
-            param.houseNo = txtHouseNo.text;
-            param.moo = txtMoo.text;
-            param.soiName = txtSoi.text;
-            param.adminLevel4Name = txtRoad.text;
-            param.adminLevel1Name = txtAdminLevel1.text;
-            param.adminLevel2Name = txtAdminLevel2.text;
-            param.adminLevel3Name = txtAdminLevel3.text;
-            param.postcode = txtPostcode.text;
+            param.houseNo = txtHouseNo.text
+            param.moo = txtMoo.text
+            param.soiName = txtSoi.text
+            param.adminLevel4Name = txtRoad.text
+            param.adminLevel1Name = txtAdminLevel1.text
+            param.adminLevel2Name = txtAdminLevel2.text
+            param.adminLevel3Name = txtAdminLevel3.text
+            param.postcode = txtPostcode.text
             
-            resultViewController?.addressSearchParam = param;
+            resultViewController?.addressSearchParam = param
             
         }
     }

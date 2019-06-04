@@ -21,22 +21,22 @@ class KeywordViewController: UIViewController, UISearchBarDelegate, UITableViewD
     var param: NTAutocompleteParameter?
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "keywordtoResultSegue" {
-            let resultViewController = segue.destination as! ResultViewController;
+            let resultViewController = segue.destination as! ResultViewController
             
-            resultViewController.searchByKeyword(sender as? String);
+            resultViewController.searchByKeyword(sender as? String)
         }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if searchText.characters.count > 0 {
-            param = NTAutocompleteParameter(keyword: searchText);
+        if searchText.count > 0 {
+            param = NTAutocompleteParameter(keyword: searchText)
             
             NTAutocompleteService.executeAsync(param!) { (resultSet, error) in
                 
@@ -60,7 +60,7 @@ class KeywordViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder();
+        searchBar.resignFirstResponder()
     }
     
     
@@ -85,7 +85,7 @@ class KeywordViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return keywords != nil ? keywords!.count : 0;
+        return keywords != nil ? keywords!.count : 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

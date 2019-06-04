@@ -14,39 +14,31 @@ protocol MarkOnMapDelegate {
     func didFinishSelectToLocation(_ point: AGSPoint);
 }
 
-class MarkOnMapViewController: UIViewController, AGSMapViewLayerDelegate, AGSLayerDelegate {
-
+class MarkOnMapViewController: UIViewController {
+    
     let referrer = ""
     
     var delegate:MarkOnMapDelegate?;
     
     @IBOutlet weak var mapView: AGSMapView!
     
-    
-    
     var isFromLocation = false;
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         self.initializeMap();
-        
-        
     }
     
-    
     @IBAction func btnOk_Clicked(_ sender: AnyObject) {
-        
-        let llPoint = AGSPoint(fromDecimalDegreesString: mapView.mapAnchor.decimalDegreesString(withNumDigits: 7),
-                               with: AGSSpatialReference.wgs84())
+        let point = mapView.screen(toLocation: mapView.center)
+        let llPoint = AGSGeometryEngine.projectGeometry(point, to: .wgs84()) as! AGSPoint
         
         if isFromLocation {
-            delegate?.didFinishSelectFromLocation(llPoint!);
+            delegate?.didFinishSelectFromLocation(llPoint);
             
         } else {
-            delegate?.didFinishSelectToLocation(llPoint!);
+            delegate?.didFinishSelectToLocation(llPoint);
         }
         
         _ = self.navigationController?.popViewController(animated: true);
@@ -54,7 +46,9 @@ class MarkOnMapViewController: UIViewController, AGSMapViewLayerDelegate, AGSLay
     }
 
     @IBAction func btnCancel_Clicked(_ sender: AnyObject) {
+        
         _ = self.navigationController?.popViewController(animated: true);
+        
     }
     
     func initializeMap() {
@@ -64,48 +58,58 @@ class MarkOnMapViewController: UIViewController, AGSMapViewLayerDelegate, AGSLay
             let resultSet = try NTMapPermissionService.execute();
             
             // Get Street map HD (service id: 2)
-            if let results = resultSet.results, results.count > 0 {
-                let filtered = results.filter({ (mp) -> Bool in
-                    return mp.serviceId == 2;
-                })
-                
-                if filtered.count > 0 {
-                    let mapPermisson = filtered.first;
-                    
-                    if let name = mapPermisson?.name, let localUrl = mapPermisson?.localService?.url, let token = mapPermisson?.localService?.token {
-                        
-                        let cred = AGSCredential(token: token, referer: referrer);
-                        let tiledLayer = AGSTiledMapServiceLayer(url: localUrl, credential: cred)
-                        tiledLayer?.delegate = self;
-                        
-                        mapView.addMapLayer(tiledLayer, withName: name);
-                    }
+            guard let results = resultSet.results, results.count > 0 else { return }
+            
+            let filtered = results.filter({ (mp) -> Bool in
+                return mp.serviceId == 2
+            })
+            
+            guard filtered.count > 0 else { return }
+            let mapPermisson = filtered.first
+            
+            guard let name = mapPermisson?.name, let localUrl = mapPermisson?.localService?.url, let token = mapPermisson?.localService?.token else { return }
+            
+            let cred = AGSCredential(token: token, referer: referrer)
+            
+            let layer = AGSArcGISTiledLayer.init(url: localUrl)
+            layer.credential = cred
+            layer.name = name
+            
+            mapView.map = AGSMap.init(basemap: AGSBasemap.init(baseLayer: layer))
+            mapView.layerViewStateChangedHandler = { (layer, state) in
+                if layer.loadStatus == .loaded {
+                    self.layerDidLoad(layer)
+                } else if layer.loadStatus == .failedToLoad {
+                    self.layer(layer, didFailToLoadWithError: layer.loadError)
                 }
             }
-        }
-        catch let error as NSError {
+            
+            mapView.map?.load(completion: { (error) in
+                guard error == nil else { print(error?.localizedDescription ?? ""); return }
+                self.mapViewDidLoad(self.mapView)
+            })
+            
+        } catch let error as NSError {
             print("error: \(error)");
         }
     }
     
     //MARK: Map view and Layer delegate
     func mapViewDidLoad(_ mapView: AGSMapView!) {
-        mapView.locationDisplay.startDataSource()
+        mapView.locationDisplay.start(completion: nil)
         
-        let env = AGSEnvelope(xmin: 10458701.000000, ymin: 542977.875000,
-                              xmax: 11986879.000000, ymax: 2498290.000000,
+        let env = AGSEnvelope(xMin: 10458701.000000, yMin: 542977.875000,
+                              xMax: 11986879.000000, yMax: 2498290.000000,
                               spatialReference: AGSSpatialReference.webMercator());
-        mapView.zoom(to: env, animated: true);
-        
+        mapView.setViewpointGeometry(env, completion: nil)
     }
-    
     
     func layerDidLoad(_ layer: AGSLayer!) {
         print("\(layer.name) was loaded");
     }
     
     func layer(_ layer: AGSLayer!, didFailToLoadWithError error: Error!) {
-        print("\(layer.name) failed to load by reason: \(error)");
+        print("\(layer.name) failed to load by reason: \(String(describing: error))");
     }
     
 }

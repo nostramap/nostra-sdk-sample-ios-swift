@@ -9,9 +9,9 @@ import UIKit
 import NOSTRASDK
 
 class DetailViewController: UIViewController {
-
     
-    var idenResult: NTIdentifyResult?;
+    
+    var idenResult: NTIdentifyResult?
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblInfo: UILabel!
@@ -21,15 +21,14 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         do {
-            let param = NTExtraContentParameter(nostraId: idenResult!.nostraId);
+            let param = NTExtraContentParameter(nostraId: idenResult!.nostraId)
             let result = try NTExtraContentService.execute(param)
             
-            
             if let travel = result.travel?.first {
-
-                lblName.text = travel.name;
-                lblInfo.text = travel.attractions?.first?.localAttraction;
-                lblDetail.text = travel.localHistory;
+                
+                lblName.text = travel.name
+                lblInfo.text = travel.attractions?.first?.localAttraction
+                lblDetail.text = travel.localHistory
                 
                 if let url = travel.pictureUrls?.first, let data = try? Data(contentsOf: url) {
                     imageView.image = UIImage(data: data)
@@ -37,31 +36,30 @@ class DetailViewController: UIViewController {
                 
             }
             else if let food = result.food?.first {
-
-                lblName.text = food.name;
-                lblInfo.text = food.foodTypes?.first?.localDescription;
-                lblDetail.text = food.entertainmentService?.localService;
+                
+                lblName.text = food.name
+                lblInfo.text = food.foodTypes?.first?.localDescription
+                lblDetail.text = food.entertainmentService?.localService
                 
                 if let url = food.pictureUrls?.first, let data = try? Data(contentsOf: url) {
                     imageView.image = UIImage(data: data)
                 }
             }
             else {
-                
-                let alertController = UIAlertController(title: "Extra content is not Found", message: nil, preferredStyle: .alert);
-                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
-                    _ = self.navigationController?.popViewController(animated: true);
-                }));
-                
-                self.present(alertController, animated: true, completion: nil);
-                
-                
+                showAlertDialog(title: "Extra content is not Found", message: nil)
             }
             
+        } catch let error {
+            showAlertDialog(title: error.localizedDescription, message: nil)
         }
-        catch {
-            
-        }
+    }
+    
+    private func showAlertDialog(title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+            _ = self.navigationController?.popViewController(animated: true)
+        }))
         
+        self.present(alertController, animated: true, completion: nil)
     }
 }

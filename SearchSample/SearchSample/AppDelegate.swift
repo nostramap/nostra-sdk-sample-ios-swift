@@ -13,7 +13,7 @@ import ArcGIS
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let apiKey = "";
+    let apiKey = ""
     let locationManager = CLLocationManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.locationManager.requestWhenInUseAuthorization()
         // Override point for customization after application launch.
         do {
-            NTSDKEnvironment.setAPIKey(apiKey);
-            try AGSRuntimeEnvironment.setClientID("A0V6LPS6BbsLOcnc");
+            NTSDKEnvironment.setAPIKey(apiKey)
+            try AGSArcGISRuntimeEnvironment.setLicenseKey("A0V6LPS6BbsLOcnc")
         }
         catch let error {
-            print("arcgis runtime error: \(error.localizedDescription)");
+            print("arcgis runtime error: \(error.localizedDescription)")
         }
         
         return true

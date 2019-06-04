@@ -9,8 +9,7 @@ import UIKit
 import NOSTRASDK
 import ArcGIS
 
-class WeatherViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSLayerDelegate {
-    
+class WeatherViewController: UIViewController , AGSCalloutDelegate, AGSGeoViewTouchDelegate {
     let referrer = ""
     
     @IBOutlet weak var mapView: AGSMapView!
@@ -22,17 +21,14 @@ class WeatherViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapVi
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var lblDateTime: UILabel!
-
-    let graphicLayer = AGSGraphicsLayer();
-    var weatherResult: NTWeatherResult?;
+    
+    let graphicLayer = AGSGraphicsOverlay()
+    var weatherResult: NTWeatherResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        initializeMap();
-        
-        
+        initializeMap()
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,36 +36,28 @@ class WeatherViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapVi
         // Dispose of any resources that can be recreated.
     }
     
-
-    //MARK: Touch Delegate
-    func mapView(_ mapView: AGSMapView!, didTapAndHoldAt screen: CGPoint, mapPoint mappoint: AGSPoint!, features: [AnyHashable: Any]!) {
-
-
-        if graphicLayer.graphicsCount > 0 {
-            graphicLayer.removeAllGraphics();
-        }
-
-        let symbol = AGSPictureMarkerSymbol(imageNamed: "pin_map");
-
-        let graphic = AGSGraphic(geometry: mappoint, symbol: symbol, attributes: nil);
-
-        graphicLayer.addGraphic(graphic);
-
-
-        mapView.callout.show(at: mappoint, for: graphic, layer: graphicLayer, animated: true);
-    }
     
+    //MARK: Touch Delegate
+    func geoView(_ geoView: AGSGeoView, didLongPressAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
+        if graphicLayer.graphics.count > 0 {
+            graphicLayer.graphics.removeAllObjects()
+        }
+        
+        let symbol = AGSPictureMarkerSymbol(image: UIImage(named: "pin_map")!)
+        let graphic = AGSGraphic(geometry: mapPoint, symbol: symbol, attributes: nil)
+        
+        graphicLayer.graphics.add(graphic)
+        mapView.callout.show(for: graphic, tapLocation: mapPoint, animated: true)
+    }
+
     //MARK: Callout delegate
-    func callout(_ callout: AGSCallout!, willShowFor feature: AGSFeature!, layer: (AGSLayer & AGSHitTestable)!, mapPoint: AGSPoint!) -> Bool {
+    func callout(_ callout: AGSCallout, willShowAtMapPoint mapPoint: AGSPoint) -> Bool {
         do {
-            let point = AGSPoint(fromDecimalDegreesString: mapPoint.decimalDegreesString(withNumDigits: 7),
-                                 with: AGSSpatialReference.wgs84());
+            let coordinate2D = mapPoint.toCLLocationCoordinate2D()
             
+            let param = NTWeatherParameter(latitude: coordinate2D.latitude, longitude: coordinate2D.longitude, frequency: .daily)
             
-            let param = NTWeatherParameter(latitude: point!.y, longitude: point!.x, frequency: .daily);
-            
-            weatherResult = try NTWeatherService.execute(param);
-            
+            weatherResult = try NTWeatherService.execute(param)
             
             if let locName = weatherResult?.locationName, let weather = weatherResult?.weather?.first {
                 lblLocation.text = locName
@@ -77,91 +65,83 @@ class WeatherViewController: UIViewController, AGSMapViewLayerDelegate, AGSMapVi
                 if let url = weather.iconUrl, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                     callout.image = image
                     callout.isAccessoryButtonHidden = true
-                    
                     imageView.image = image
                 }
-                
-                
-                
                 lblDesc.text = weather.weatherDescription
                 if let avg = weather.temperature?.average, let min = weather.temperature?.min, let max = weather.temperature?.max {
-                    lblAvgTemp.text = String(format: "%1.f˚", avg);
-                    lblMinTemp.text =  String(format: "%1.f˚", min);
-                    lblMaxTemp.text =  String(format: "%1.f˚", max);
+                    lblAvgTemp.text = String(format: "%1.f˚", avg)
+                    lblMinTemp.text =  String(format: "%1.f˚", min)
+                    lblMaxTemp.text =  String(format: "%1.f˚", max)
                 }
                 
                 if let dt = weather.datetime {
-                    let formatter = DateFormatter();
-                    formatter.dateFormat = "dd MMM hh:mm";
-                    lblDateTime.text = formatter.string(from: dt);
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "dd MMM hh:mm"
+                    lblDateTime.text = formatter.string(from: dt)
                 }
-                weatherView.isHidden = false;
+                weatherView.isHidden = false
             }
-            
-            
-            callout.isAccessoryButtonHidden = true;
-            
-            
+            callout.isAccessoryButtonHidden = true
         }
         catch let error as NSError {
             print("error: \(error.description)")
         }
-        
-        
-        
-        return true;
-    }
-    
-    func didClickAccessoryButton(for callout: AGSCallout!) {
-        self.performSegue(withIdentifier: "detailSegue", sender: nil);
+        return true
     }
     
     //MARK: Layer delegate
     func mapViewDidLoad(_ mapView: AGSMapView!) {
-        mapView.locationDisplay.startDataSource()
+        // mapView.locationDisplay.startDataSource()
+        mapView.locationDisplay.start(completion: nil)
         
-        let env = AGSEnvelope(xmin: 10458701.000000, ymin: 542977.875000,
-                              xmax: 11986879.000000, ymax: 2498290.000000,
-                              spatialReference: AGSSpatialReference.webMercator());
-        mapView.zoom(to: env, animated: true);
-        
-        mapView.addMapLayer(graphicLayer, withName: "GraphicLyaer");
+        let env = AGSEnvelope(xMin: 10458701.000000, yMin: 542977.875000,
+                              xMax: 11986879.000000, yMax: 2498290.000000,
+                              spatialReference: AGSSpatialReference.webMercator())
+        mapView.setViewpointGeometry(env, completion: nil)
+        graphicLayer.overlayID = "GraphicLyaer"
+        mapView.graphicsOverlays.add(graphicLayer)
         
     }
     
     
     func initializeMap() {
-        
-        mapView.layerDelegate = self;
-        mapView.touchDelegate = self;
-        mapView.callout.delegate = self;
+        mapView.touchDelegate = self
+        mapView.callout.delegate = self
         
         do {
             // Get map permisson.
-            let resultSet = try NTMapPermissionService.execute();
+            let resultSet = try NTMapPermissionService.execute()
             
             // Get Street map HD (service id: 2)
             if let results = resultSet.results, results.count > 0 {
                 let filtered = results.filter({ (mp) -> Bool in
-                    return mp.serviceId == 2;
+                    return mp.serviceId == 2
                 })
                 
                 if filtered.count > 0 {
-                    let mapPermisson = filtered.first;
+                    let mapPermisson = filtered.first
                     
                     if let name = mapPermisson?.name, let localUrl = mapPermisson?.localService?.url, let token = mapPermisson?.localService?.token {
+
+                        //TODO: remove credential
+                        let cred = AGSCredential(token: token, referer: referrer)
+                        let layer = AGSArcGISTiledLayer.init(url: localUrl)
+                        layer.credential = cred
+                        layer.name = name
                         
-                        let cred = AGSCredential(token: token, referer: referrer);
-                        let tiledLayer = AGSTiledMapServiceLayer(url: localUrl, credential: cred)
-                        tiledLayer?.delegate = self;
+                        mapView.map = AGSMap.init(basemap: AGSBasemap.init(baseLayer: layer))
                         
-                        mapView.addMapLayer(tiledLayer, withName: name);
+                        mapView.layerViewStateChangedHandler = { (layer, state) in
+                            guard layer.loadStatus == .loaded else { return }
+                            self.mapViewDidLoad(self.mapView)
+                        }
+                        
                     }
                 }
             }
         }
         catch let error as NSError {
-            print("error: \(error)");
+            print("error: \(error)")
         }
     }
     

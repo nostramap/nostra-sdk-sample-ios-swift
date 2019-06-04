@@ -19,11 +19,11 @@ class DMCListViewController: UITableViewController {
         do {
             if let layerId = self.dmcResult?.layerId {
                 let param = NTDynamicContentParameter(layerId: layerId, latitude: 13.746832,
-                                                      longitude: 100.534886);
+                                                      longitude: 100.534886)
                 
                 let resultSet = try NTDynamicContentService.execute(param)
                 
-                results = resultSet.results;
+                results = resultSet.results
             }
             
             
@@ -50,7 +50,7 @@ class DMCListViewController: UITableViewController {
         cell.detailTextLabel?.text = result.localAddress
         
         if let url = result.iconUrl, let data = try? Data.init(contentsOf: url) {
-            cell.imageView?.image = UIImage(data: data);
+            cell.imageView?.image = UIImage(data: data)
         }
         
         
@@ -67,7 +67,7 @@ class DMCListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results != nil ? results!.count : 0;
+        return results != nil ? results!.count : 0
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,8 +83,8 @@ class DMCListViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         if segue.identifier == "resulttoDetailSegue" {
-            let detailViewController = segue.destination as? DMCDetailViewController;
-            detailViewController?.result = sender as? NTDynamicContentResult;
+            let detailViewController = segue.destination as? DMCDetailViewController
+            detailViewController?.result = sender as? NTDynamicContentResult
         }
     }
 

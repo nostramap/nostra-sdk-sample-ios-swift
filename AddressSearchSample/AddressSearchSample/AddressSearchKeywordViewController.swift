@@ -13,11 +13,11 @@ class AddressSearchKeywordViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "resultSegue" {
-            let resultViewController = segue.destination as? AddressSearchResultViewController;
+            let resultViewController = segue.destination as? AddressSearchResultViewController
             
-            let param = NTAddressSearchParameter(keyword: txtKeyword.text!);
+            let param = NTAddressSearchParameter(keyword: txtKeyword.text!)
             
-            resultViewController?.addressSearchParam = param;
+            resultViewController?.addressSearchParam = param
             
         }
     }

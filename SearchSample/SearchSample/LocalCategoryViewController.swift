@@ -25,10 +25,10 @@ class LocalCategoryViewController: UIViewController, UITableViewDataSource, UITa
                 else {
                     self.localCateogries = resultSet?.results
                 }
-                self.tableView.reloadData();
+                self.tableView.reloadData()
             })
             
-        });
+        })
         
     }
 
@@ -40,9 +40,9 @@ class LocalCategoryViewController: UIViewController, UITableViewDataSource, UITa
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "localCategorytoResultSegue" {
-            let resultViewController = segue.destination as! ResultViewController;
+            let resultViewController = segue.destination as! ResultViewController
             
-            resultViewController.searchByLocalCategory(sender as? String);
+            resultViewController.searchByLocalCategory(sender as? String)
         }
     }
     
@@ -66,7 +66,7 @@ class LocalCategoryViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return localCateogries != nil ? localCateogries!.count : 0;
+        return localCateogries != nil ? localCateogries!.count : 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

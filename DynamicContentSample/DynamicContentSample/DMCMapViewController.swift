@@ -9,7 +9,7 @@ import UIKit
 import ArcGIS
 import NOSTRASDK
 
-class DMCMapViewController: UIViewController, AGSLayerDelegate, AGSCalloutDelegate {
+class DMCMapViewController: UIViewController, AGSCalloutDelegate {
     
     let referrer = ""
     
@@ -19,7 +19,7 @@ class DMCMapViewController: UIViewController, AGSLayerDelegate, AGSCalloutDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initializeMap();
+        self.initializeMap()
         // Do any additional setup after loading the view.
     }
 
@@ -29,37 +29,30 @@ class DMCMapViewController: UIViewController, AGSLayerDelegate, AGSCalloutDelega
     }
     
 
-    //MARK: layer delegate
     func layerDidLoad(_ layer: AGSLayer!) {
         if let result = self.result, let point = result.point {
             let point = AGSPoint(x: point.x!, y: point.y!, spatialReference: AGSSpatialReference.wgs84())
             
-            guard let decString = point?.decimalDegreesString(withNumDigits: 7) else {
-                return
+            mapView.setViewpointCenter(point, scale: 10000, completion: nil)
+            
+            let graphicLayer = AGSGraphicsOverlay()
+            mapView.graphicsOverlays.add(graphicLayer)
+            
+            let symbol = AGSPictureMarkerSymbol.init(image: UIImage.init(named: "pin_map")!)
+            let graphic = AGSGraphic(geometry: point, symbol: symbol, attributes: nil)
+            graphicLayer.graphics.add(graphic)
+            
+            DispatchQueue.main.async {
+                self.mapView.callout.show(for: graphic, tapLocation: point, animated: true)
             }
-            
-            let mappoint = AGSPoint(fromDegreesDecimalMinutesString: decString, with: AGSSpatialReference.webMercator());
-            
-            mapView.zoom(toScale: 10000, withCenter: mappoint, animated: true);
-            
-            let graphicLayer = AGSGraphicsLayer();
-            mapView.addMapLayer(graphicLayer);
-            
-            let symbol = AGSPictureMarkerSymbol(imageNamed: "pin_map");
-            let graphic = AGSGraphic(geometry: mappoint, symbol: symbol, attributes: nil);
-            graphicLayer.addGraphic(graphic);
-            mapView.callout.show(at: mappoint, for: graphic, layer: graphicLayer, animated: true);
             
         }
     }
     
     //MARK: Callout delegate
-    func callout(_ callout: AGSCallout!, willShowFor feature: AGSFeature!, layer: AGSLayer!, mapPoint: AGSPoint!) -> Bool {
-        
-        guard let result = self.result else {
-            return false
-        }
-        callout.title = result.localName;
+    func callout(_ callout: AGSCallout, willShowAtMapPoint mapPoint: AGSPoint) -> Bool {
+        guard let result = self.result else { return false }
+        callout.title = result.localName
         callout.detail = result.localAddress
         
         return true
@@ -67,40 +60,47 @@ class DMCMapViewController: UIViewController, AGSLayerDelegate, AGSCalloutDelega
     
     func initializeMap() {
         
-        mapView.callout.delegate = self;
+        mapView.callout.delegate = self
         
         do {
             // Get map permisson.
-            let resultSet = try NTMapPermissionService.execute();
+            let resultSet = try NTMapPermissionService.execute()
             
             // Get Street map HD (service id: 2)
-            if let results = resultSet.results, results.count > 0 {
-                let filtered = results.filter({ (mp) -> Bool in
-                    return mp.serviceId == 2;
-                })
-                
-                if filtered.count > 0 {
-                    let mapPermisson = filtered.first;
-                    
-                    if let name = mapPermisson?.name, let localUrl = mapPermisson?.localService?.url, let token = mapPermisson?.localService?.token {
-                        
-                        let cred = AGSCredential(token: token, referer: referrer);
-                        let tiledLayer = AGSTiledMapServiceLayer(url: localUrl, credential: cred)
-                        tiledLayer?.delegate = self;
-                        
-                        mapView.addMapLayer(tiledLayer, withName: name);
-                    }
+            guard let results = resultSet.results, results.count > 0 else { return }
+            
+            let filtered = results.filter({ (mp) -> Bool in
+                return mp.serviceId == 2
+            })
+            
+            guard filtered.count > 0 else { return }
+            let mapPermisson = filtered.first
+            
+            guard let name = mapPermisson?.name, let localUrl = mapPermisson?.localService?.url, let token = mapPermisson?.localService?.token else { return }
+            
+            let cred = AGSCredential(token: token, referer: referrer)
+            
+            let layer = AGSArcGISTiledLayer.init(url: localUrl)
+            layer.credential = cred
+            layer.name = name
+            
+            mapView.map = AGSMap.init(basemap: AGSBasemap.init(baseLayer: layer))
+            mapView.layerViewStateChangedHandler = { (layer, state) in
+                if layer.loadStatus == .loaded {
+                    self.layerDidLoad(layer)
+                } else if layer.loadStatus == .failedToLoad {
+                    self.layer(layer, didFailToLoadWithError: layer.loadError)
                 }
             }
-        }
-        catch let error as NSError {
-            print("error: \(error)");
+            
+        } catch let error as NSError {
+            print("error: \(error)")
         }
     }
     
     
     func layer(_ layer: AGSLayer!, didFailToLoadWithError error: Error!) {
-        print("\(layer.name) failed to load by reason: \(error)");
+        print("\(layer.name) failed to load by reason: \(String(describing: error))")
     }
 
 }

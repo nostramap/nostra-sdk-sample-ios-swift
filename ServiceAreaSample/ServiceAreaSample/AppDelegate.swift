@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         do {
-            NTSDKEnvironment.setAPIKey(apiKey);
-            try AGSRuntimeEnvironment.setClientID("A0V6LPS6BbsLOcnc");
+            NTSDKEnvironment.setAPIKey(apiKey)
+            try AGSArcGISRuntimeEnvironment.setLicenseKey("A0V6LPS6BbsLOcnc")
         }
         catch let error {
-            print("arcgis runtime error: \(error.localizedDescription)");
+            print("arcgis runtime error: \(error.localizedDescription)")
         }
         
         return true

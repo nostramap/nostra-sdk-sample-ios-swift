@@ -13,16 +13,16 @@ import NOSTRASDK
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let apiKey = "";
+    let apiKey = ""
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         do {
-            NTSDKEnvironment.setAPIKey(apiKey);
-            try AGSRuntimeEnvironment.setClientID("A0V6LPS6BbsLOcnc");
+            NTSDKEnvironment.setAPIKey(apiKey)
+            try AGSArcGISRuntimeEnvironment.setLicenseKey("A0V6LPS6BbsLOcnc")
         }
         catch let error {
-            print("arcgis runtime error: \(error.localizedDescription)");
+            print("arcgis runtime error: \(error.localizedDescription)")
         }
         
         return true
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        // Called as part of the transition from the background to the inactive state here you can undo many of the changes made on entering the background.
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

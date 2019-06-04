@@ -22,12 +22,12 @@ class DMCDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let result = self.result {
-            lblName.text = result.localName;
-            lblAddress.text = result.localAddress;
-            lblAdd_Info.text = result.additionalInfo?.localInfo;
-            lblDetail.text = result.detail?.localInfo;
-            lblTelNo.text = result.telephoneNumber;
-            lblWebsite.text = result.website?.absoluteString;
+            lblName.text = result.localName
+            lblAddress.text = result.localAddress
+            lblAdd_Info.text = result.additionalInfo?.localInfo
+            lblDetail.text = result.detail?.localInfo
+            lblTelNo.text = result.telephoneNumber
+            lblWebsite.text = result.website?.absoluteString
         }
         
     }
@@ -43,20 +43,20 @@ class DMCDetailViewController: UIViewController {
         
         do {
             if let result = self.result, let point = result.point {
-                let location = NTLocation(name: result.localName, latitude: point.latitude!, longitude: point.longitude!);
-                let param = NTShortLinkParameter(location: location);
-                let shareResult = try NTShortLinkService.execute(param);
+                let location = NTLocation(name: result.localName, latitude: point.latitude!, longitude: point.longitude!)
+                let param = NTShortLinkParameter(location: location)
+                let shareResult = try NTShortLinkService.execute(param)
                 
-                let alertController = UIAlertController(title: "Share", message: shareResult.url?.absoluteString, preferredStyle: .alert);
+                let alertController = UIAlertController(title: "Share", message: shareResult.url?.absoluteString, preferredStyle: .alert)
                 let actionCopy = UIAlertAction(title: "Copy", style: .default, handler: { (action) in
-                    UIPasteboard.general.string = shareResult.url?.absoluteString;
+                    UIPasteboard.general.string = shareResult.url?.absoluteString
                 })
-                let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil);
+                let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                 
-                alertController.addAction(actionCopy);
-                alertController.addAction(actionCancel);
+                alertController.addAction(actionCopy)
+                alertController.addAction(actionCancel)
                 
-                self.present(alertController, animated: true, completion: nil);
+                self.present(alertController, animated: true, completion: nil)
             }
             
         }
@@ -74,8 +74,8 @@ class DMCDetailViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "detailtoMapSegue" {
-            let mapViewController = segue.destination as! DMCMapViewController;
-            mapViewController.result = result;
+            let mapViewController = segue.destination as! DMCMapViewController
+            mapViewController.result = result
         }
     }
 

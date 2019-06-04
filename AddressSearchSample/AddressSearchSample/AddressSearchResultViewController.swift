@@ -12,8 +12,8 @@ class AddressSearchResultViewController: UIViewController, UITableViewDelegate, 
 
     @IBOutlet weak var tableView: UITableView!
 
-    var results: [NTAddressSearchResult]! = nil;
-    var addressSearchParam: NTAddressSearchParameter! = nil;
+    var results: [NTAddressSearchResult]! = nil
+    var addressSearchParam: NTAddressSearchParameter! = nil
     
     override func viewDidLoad() {
         
@@ -22,8 +22,10 @@ class AddressSearchResultViewController: UIViewController, UITableViewDelegate, 
             NTAddressSearchService.executeAsync(addressSearchParam) {
                 (resultSet, error) in
                 if error == nil {
-                    self.results = resultSet?.results;
-                    self.tableView.reloadData();
+                    self.results = resultSet?.results
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
                 else {
                     print("error: \(error?.localizedDescription ?? "")")
@@ -34,14 +36,14 @@ class AddressSearchResultViewController: UIViewController, UITableViewDelegate, 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mapViewSegue" {
-            let mapResultViewController = segue.destination as? AddressSearchMapResultViewController;
-            mapResultViewController!.result = (sender as! NTAddressSearchResult);
+            let mapResultViewController = segue.destination as? AddressSearchMapResultViewController
+            mapResultViewController!.result = (sender as! NTAddressSearchResult)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let result = results[indexPath.row];
+        let result = results[indexPath.row]
         self.performSegue(withIdentifier: "mapViewSegue", sender: result)
     }
     
@@ -50,7 +52,7 @@ class AddressSearchResultViewController: UIViewController, UITableViewDelegate, 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
             return UITableViewCell()
         }
-        let result = results[indexPath.row];
+        let result = results[indexPath.row]
         
         if let houseNumber = result.houseNumber, let soiName = result.localSoiName {
             cell.textLabel?.text = "\(houseNumber), \(soiName)"
@@ -69,7 +71,7 @@ class AddressSearchResultViewController: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results != nil ? results.count : 0;
+        return results != nil ? results.count : 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

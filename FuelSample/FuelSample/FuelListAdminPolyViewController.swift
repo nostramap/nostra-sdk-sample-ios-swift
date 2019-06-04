@@ -21,17 +21,17 @@ class FuelListAdminPolyViewController: UIViewController, UITableViewDataSource, 
     var delegate: FuelListAdminPolyDelegate?
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
         
-        let param = NTAdministrativeParameter();
+        let param = NTAdministrativeParameter()
         
         if let code = self.adminLevel1Code {
             param.adminLevel1Code = code
             
         }
         do {
-            let resultSet = try NTAdministrativeService.execute(param);
-            results = resultSet.results;
+            let resultSet = try NTAdministrativeService.execute(param)
+            results = resultSet.results
         }
         catch let error as NSError {
             print("error: \(error.description)")
@@ -42,22 +42,22 @@ class FuelListAdminPolyViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell");
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
         if let result = results?[indexPath.row] {
             cell?.textLabel?.text = result.localName
         }
-        return cell!;
+        return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let result = results?[indexPath.row] {
             if self.adminLevel1Code == nil {
-                delegate?.didFinishSelectProvice(result);
+                delegate?.didFinishSelectProvice(result)
             }
             else
             {
-                delegate?.didFinishSelectAmphoe(result);
+                delegate?.didFinishSelectAmphoe(result)
             }
             _ = self.navigationController?.popViewController(animated: true)
         }
@@ -65,10 +65,10 @@ class FuelListAdminPolyViewController: UIViewController, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results != nil ? (results?.count)! : 0;
+        return results != nil ? (results?.count)! : 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1;
+        return 1
     }
 }

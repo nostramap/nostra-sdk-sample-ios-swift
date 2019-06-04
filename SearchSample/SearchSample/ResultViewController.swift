@@ -16,26 +16,26 @@ class ResultViewController: UIViewController , UITableViewDataSource , UITableVi
     var results: [NTLocationSearchResult]?
 
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
     }
     
     func searchByKeyword(_ keyword: String?) {
         if let key = keyword {
             let param = NTLocationSearchParameter(keyword: key)
-            self.searchWithParam(param);
+            self.searchWithParam(param)
         }
         else {
-            self.performUnabletoSearch();
+            self.performUnabletoSearch()
         }
     }
     
     func searchByCategory(_ category: String?) {
         if let cate = category {
             let param = NTLocationSearchParameter(categoryCodes: [cate])
-            self.searchWithParam(param);
+            self.searchWithParam(param)
         }
         else {
-            self.performUnabletoSearch();
+            self.performUnabletoSearch()
         }
 
     }
@@ -43,10 +43,10 @@ class ResultViewController: UIViewController , UITableViewDataSource , UITableVi
     func searchByLocalCategory(_ localCategory: String?) {
         if let localCat = localCategory {
             let param = NTLocationSearchParameter(localCategoryCodes: [localCat])
-            self.searchWithParam(param);
+            self.searchWithParam(param)
         }
         else {
-            self.performUnabletoSearch();
+            self.performUnabletoSearch()
         }
     }
     
@@ -65,31 +65,31 @@ class ResultViewController: UIViewController , UITableViewDataSource , UITableVi
                 self.tableView.reloadData()
             })
             
-        });
+        })
     }
     
     
     func performUnabletoSearch() {
-        let alertController = UIAlertController(title: "Unable to search", message: "Please check your location.", preferredStyle: .alert);
+        let alertController = UIAlertController(title: "Unable to search", message: "Please check your location.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
-            _ = self.navigationController?.popViewController(animated: true);
-        }));
+            _ = self.navigationController?.popViewController(animated: true)
+        }))
         
-        self.present(alertController, animated: true, completion: nil);
+        self.present(alertController, animated: true, completion: nil)
     }
     
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mapResultSegue" {
-            let mapResultViewController = segue.destination as? MapResultViewController;
-            mapResultViewController?.result = sender as? NTLocationSearchResult;
+            let mapResultViewController = segue.destination as? MapResultViewController
+            mapResultViewController?.result = sender as? NTLocationSearchResult
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let result = results![indexPath.row];
-        self.performSegue(withIdentifier: "mapResultSegue", sender: result);
+        let result = results![indexPath.row]
+        self.performSegue(withIdentifier: "mapResultSegue", sender: result)
     }
     
     
@@ -111,7 +111,7 @@ class ResultViewController: UIViewController , UITableViewDataSource , UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results != nil ? (results?.count)! : 0;
+        return results != nil ? (results?.count)! : 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

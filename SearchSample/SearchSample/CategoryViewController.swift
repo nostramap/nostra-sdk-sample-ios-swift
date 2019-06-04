@@ -26,9 +26,9 @@ class CategoryViewController: UIViewController ,UITableViewDataSource , UITableV
                 else {
                     self.categories = resultSet?.results
                 }
-                self.tableView.reloadData();
+                self.tableView.reloadData()
                 
-            });
+            })
             
         }
         
@@ -37,9 +37,9 @@ class CategoryViewController: UIViewController ,UITableViewDataSource , UITableV
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "categorytoResultSegue" {
-            let resultViewController = segue.destination as! ResultViewController;
+            let resultViewController = segue.destination as! ResultViewController
             
-            resultViewController.searchByCategory(sender as? String);
+            resultViewController.searchByCategory(sender as? String)
         }
     }
 
@@ -63,7 +63,7 @@ class CategoryViewController: UIViewController ,UITableViewDataSource , UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories != nil ? categories!.count : 0;
+        return categories != nil ? categories!.count : 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
