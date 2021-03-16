@@ -189,20 +189,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MeasurementToolsSample/Pods-MeasurementToolsSample-frameworks.sh",
-				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework",
-				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework.dSYM",
-				"${PODS_ROOT}/NOSTRASDK/NOSTRASDK.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-MeasurementToolsSample/Pods-MeasurementToolsSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ArcGIS.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/ArcGIS.framework.dSYM",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NOSTRASDK.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-MeasurementToolsSample/Pods-MeasurementToolsSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

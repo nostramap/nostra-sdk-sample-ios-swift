@@ -139,6 +139,15 @@ class MapViewController: UIViewController, UITableViewDataSource, UITableViewDel
             layer = wmsLayer
         } else if mapPermission.mapServiceType == .openSteetMap {
             layer = AGSOpenStreetMapLayer()
+        } else if mapPermission.mapServiceType == .vectorTiledMapService {
+            let vectorTiledLayer = AGSArcGISVectorTiledLayer(url: url)
+            
+            if let token = mapPermission.localService?.token, !token.isEmpty {
+                let cred = AGSCredential(token: token, referer: referrer)
+                vectorTiledLayer.credential = cred
+            }
+            
+            layer = vectorTiledLayer
         }
 
         if layer != nil, let name = mapPermission.name {

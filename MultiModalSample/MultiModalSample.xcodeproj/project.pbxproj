@@ -204,13 +204,11 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MultiModalSample/Pods-MultiModalSample-frameworks.sh",
 				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework",
-				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework.dSYM",
 				"${PODS_ROOT}/NOSTRASDK/NOSTRASDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ArcGIS.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/ArcGIS.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NOSTRASDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +369,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
+					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = MultiModalSample/Info.plist;
@@ -393,7 +391,7 @@
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK,
+					"$PODS_CONFIGURATION_BUILD_DIR/NOSTRASDK",
 					"$PODS_CONFIGURATION_BUILD_DIR/ArcGIS-Runtime-SDK-iOS",
 				);
 				INFOPLIST_FILE = MultiModalSample/Info.plist;

@@ -136,6 +136,7 @@
 				TargetAttributes = {
 					AF306E081CC1FE8000A986AE = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = JV39BS58TD;
 						LastSwiftMigration = 0900;
 					};
 				};
@@ -199,13 +200,11 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MapSample/Pods-MapSample-frameworks.sh",
 				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework",
-				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework.dSYM",
 				"${PODS_ROOT}/NOSTRASDK/NOSTRASDK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ArcGIS.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/ArcGIS.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NOSTRASDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,7 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JV39BS58TD;
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -391,7 +390,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JV39BS58TD;
 				ENABLE_BITCODE = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
